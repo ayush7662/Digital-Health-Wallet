@@ -1,0 +1,177 @@
+/* ------------------------------
+   Tailwind & Plugins
+--------------------------------*/
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ------------------------------
+   Dark Mode Variant
+--------------------------------*/
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------
+   Theme Variables (Inline)
+   -> used by shadcn/ui system
+--------------------------------*/
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ------------------------------
+   Light Theme (Health Based)
+--------------------------------*/
+:root {
+  --radius: 0.625rem;
+
+  /* Backgrounds */
+  --background: #f5fffa;             /* mint - fresh health UI */
+  --foreground: #05251b;             /* deep green text */
+
+  /* Cards */
+  --card: #ffffff;
+  --card-foreground: #0b2b23;
+
+  /* Popover / dialog */
+  --popover: #ffffff;
+  --popover-foreground: #0b2b23;
+
+  /* Primary = MEDICAL GREEN */
+  --primary: #1a9c77;
+  --primary-foreground: #ffffff;
+
+  /* Secondary (medical blue) */
+  --secondary: #0b7285;
+  --secondary-foreground: #ffffff;
+
+  /* Muted text */
+  --muted: #e8f4ef;
+  --muted-foreground: #4b7666;
+
+  --accent: #c9fff1;
+  --accent-foreground: #054735;
+
+  /* Alerts / errors */
+  --destructive: #c62828;
+
+  /* Borders + Inputs */
+  --border: #d6ebe3;
+  --input: #dceee7;
+  --ring: #1a9c77;
+
+  /* Chart Colors */
+  --chart-1: #1a9c77;
+  --chart-2: #0b7285;
+  --chart-3: #76c893;
+  --chart-4: #2d6a4f;
+  --chart-5: #40916c;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #054735;
+  --sidebar-primary: #1a9c77;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ddf7ef;
+  --sidebar-accent-foreground: #054735;
+  --sidebar-border: #ccece3;
+  --sidebar-ring: #1a9c77;
+}
+
+/* ------------------------------
+   DARK THEME (Medical Dark Mode)
+--------------------------------*/
+.dark {
+  --background: #0b1613;
+  --foreground: #d8ffef;
+  --card: #11201b;
+  --card-foreground: #d8ffef;
+
+  --popover: #11201b;
+  --popover-foreground: #d8ffef;
+
+  --primary: #76c893;
+  --primary-foreground: #05251b;
+
+  --secondary: #4cb4c7;
+  --secondary-foreground: #05251b;
+
+  --muted: #1b2e27;
+  --muted-foreground: #76c893;
+
+  --accent: #1b3e34;
+  --accent-foreground: #d8ffef;
+
+  --destructive: #c62828;
+
+  --border: #1b2e27;
+  --input: #1e322c;
+  --ring: #76c893;
+
+  --chart-1: #76c893;
+  --chart-2: #4cb4c7;
+  --chart-3: #2d6a4f;
+  --chart-4: #8cffdf;
+  --chart-5: #40c57d;
+
+  --sidebar: #11201b;
+  --sidebar-foreground: #d8ffef;
+  --sidebar-primary: #76c893;
+  --sidebar-primary-foreground: #05251b;
+  --sidebar-accent: #1b3e34;
+  --sidebar-accent-foreground: #d8ffef;
+  --sidebar-border: #1b2e27;
+  --sidebar-ring: #76c893;
+}
+
+/* ------------------------------
+   Base Layer
+--------------------------------*/
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, Inter, sans-serif;
+  }
+}
