@@ -15,6 +15,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/reports', reportRoutes);
 app.use('/api/vitals', vitalsRoutes);
 
+app.get('',(req,res)=>{
+    res.json({message : "ok"})
+})
+
 const PORT = 5000
 app.listen(PORT, () =>{
     console.log(`Server running on http://localhost:${PORT}`)
